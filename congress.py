@@ -1,7 +1,7 @@
-import urllib, urllib2, requests
+import urllib, urllib2, requests, csv
 from secrets import API_KEY
 
-cid ='N00007360'
+# These functions work with the Center for Responsible Politics API to isolate data on a per candidate basis
 
 def candidate_summary(apikey,cid, cycle='2018', output ='json'):
 	url = 'http://opensecrets.org/api/?method=candSummary&output=%s&apikey=%s&cycle=%s&cid=%s' % \
@@ -12,5 +12,3 @@ def candidate_summary(apikey,cid, cycle='2018', output ='json'):
 def candidate_details(response):
 	details =response['response']['summary']['@attributes']
 	return details
-
-print candidate_details(candidate_summary(API_KEY, cid))
