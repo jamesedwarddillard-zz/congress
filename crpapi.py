@@ -16,4 +16,5 @@ def candidate_details(response):
 		details ={'status_code': response.status_code, 'details': response.json()['response']['summary']['@attributes']}
 	else:
 		details = {'status_code': response.status_code, 'details': ''}
+	print details
 	return details

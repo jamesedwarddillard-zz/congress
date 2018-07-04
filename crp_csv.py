@@ -49,4 +49,4 @@ def new_csv(old_csv):
 				filewriter.writerow(ordered_row) 
 	print 'All done.'
 
-new_csv('test_candidates.csv')
+new_csv('candidates.csv')
