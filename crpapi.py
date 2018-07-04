@@ -8,6 +8,7 @@ def candidate_summary(apikey,cid, cycle='2018', output ='json'):
 	url = 'http://opensecrets.org/api/?method=candSummary&output=%s&apikey=%s&cycle=%s&cid=%s' % \
 		(output,apikey,cycle, cid )
 	response = requests.get(url)
+	print response
 	return response.json()
 
 def candidate_details(response):

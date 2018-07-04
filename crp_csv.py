@@ -25,7 +25,13 @@ def enriched_data(candidate_data_dict):
 
 def new_csv(old_csv):
 	data = candidate_csv(old_csv)
-	# have to have a way to skip the blanks here
-	for row in
+	with open('candidate_data.csv', 'w') as csv_file:
+		filewriter = filewriter = csv.writer(csv_file, delimiter=',',
+                            quotechar='|', quoting=csv.QUOTE_MINIMAL)
+		for row in data:
+			if row['CID'] != '': # need to be able to handle 404s
+				print row['CID']
+				candidate_row = enriched_data(row)
+				filewriter.writerow(candidate_row.values())
 
-print enriched_data(candidate_csv('test_candidates.csv')[0]).keys()
+print new_csv('test_candidates.csv')
