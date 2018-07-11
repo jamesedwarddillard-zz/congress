@@ -1,5 +1,4 @@
 import csv
-import pandas
 from crpapi import candidate_summary, candidate_details
 from secrets import API_KEY
 
@@ -37,7 +36,7 @@ headers = ['cid', 'name', 'district', 'party', 'spent', 'total', 'cash on hand',
 
 def new_csv(old_csv):
 	data = candidate_csv(old_csv)
-	with open('candidate_data.csv', 'w') as csv_file:
+	with open('candidate_data_v2.csv', 'w') as csv_file:
 		filewriter = filewriter = csv.writer(csv_file, delimiter=',', quoting=csv.QUOTE_MINIMAL)
 		filewriter.writerow(headers)
 		for row in data:
@@ -49,4 +48,4 @@ def new_csv(old_csv):
 				filewriter.writerow(ordered_row) 
 	print 'All done.'
 
-new_csv('candidates.csv')
+new_csv('candidates v2.csv')
